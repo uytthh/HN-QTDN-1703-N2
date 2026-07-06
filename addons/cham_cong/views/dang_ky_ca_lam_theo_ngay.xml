@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_dang_ky_ca_lam_theo_ngay_form" model="ir.ui.view">
+            <field name="name">dang_ky_ca_lam_theo_ngay.form</field>
+            <field name="model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="arch" type="xml">
+                <form string="Đăng ký ca làm theo ngày">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="ma_dot_ngay" string="Mã đăng ký"/>
+                            <h1><field name="ma_dot_ngay"/></h1>
+                        </div>
+                        <group col="2" string="Thông tin chung">
+                            <field name="dot_dang_ky_id"/>
+                            <field name="nhan_vien_id"/>
+                            <field name="ngay_lam"/>
+                            <field name="ca_lam" widget="radio"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_dang_ky_ca_lam_theo_ngay_tree" model="ir.ui.view">
+            <field name="name">dang_ky_ca_lam_theo_ngay.tree</field>
+            <field name="model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="arch" type="xml">
+                <tree string="Đăng ký ca làm theo ngày" decoration-muted="ca_lam == ''">
+                    <field name="ma_dot_ngay"/>
+                    <field name="dot_dang_ky_id"/>
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_lam"/>
+                    <field name="ca_lam" widget="badge"
+                           decoration-info="ca_lam == 'Sáng'"
+                           decoration-warning="ca_lam == 'Chiều'"
+                           decoration-success="ca_lam == 'Cả ngày'"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Calendar View -->
+        <record id="view_dang_ky_ca_lam_theo_ngay_calendar" model="ir.ui.view">
+            <field name="name">dang_ky_ca_lam_theo_ngay.calendar</field>
+            <field name="model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="arch" type="xml">
+                <calendar string="Lịch đăng ký ca làm" date_start="ngay_lam" color="nhan_vien_id" mode="month" quick_add="0">
+                    <field name="nhan_vien_id"/>
+                    <field name="ca_lam"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Kanban View -->
+        <record id="view_dang_ky_ca_lam_theo_ngay_kanban" model="ir.ui.view">
+            <field name="name">dang_ky_ca_lam_theo_ngay.kanban</field>
+            <field name="model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="nhan_vien_id" class="o_kanban_small_column">
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_lam"/>
+                    <field name="ca_lam"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <strong><field name="ngay_lam"/></strong>
+                                        <span class="badge badge-info"><field name="ca_lam"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dang_ky_ca_lam_theo_ngay_search">
+            <field name="name">dang_ky_ca_lam_theo_ngay.search</field>
+            <field name="model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ma_dot_ngay"/>
+                    <field name="dot_dang_ky_id"/>
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_lam"/>
+                    <field name="ca_lam"/>
+                    <separator/>
+                    <filter string="Ca sáng" name="ca_sang" domain="[('ca_lam','=','Sáng')]"/>
+                    <filter string="Ca chiều" name="ca_chieu" domain="[('ca_lam','=','Chiều')]"/>
+                    <filter string="Cả ngày" name="ca_ca_ngay" domain="[('ca_lam','=','Cả ngày')]"/>
+                    <separator/>
+                    <filter string="Hôm nay" name="hom_nay" domain="[('ngay_lam','=', context_today().strftime('%%Y-%%m-%%d'))]"/>
+                    <group expand="1" string="Nhóm theo">
+                        <filter string="Đợt đăng ký" name="group_dot" context="{'group_by':'dot_dang_ky_id'}"/>
+                        <filter string="Nhân viên" name="group_nv" context="{'group_by':'nhan_vien_id'}"/>
+                        <filter string="Ca làm" name="group_ca" context="{'group_by':'ca_lam'}"/>
+                        <filter string="Ngày" name="group_ngay" context="{'group_by':'ngay_lam'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_dang_ky_ca_lam_theo_ngay" model="ir.actions.act_window">
+            <field name="name">Đăng ký ca làm theo ngày</field>
+            <field name="res_model">dang_ky_ca_lam_theo_ngay</field>
+            <field name="view_mode">tree,calendar,kanban,form</field>
+            <field name="search_view_id" ref="dang_ky_ca_lam_theo_ngay_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có đăng ký ca làm nào
+                </p>
+                <p class="text-muted">
+                    Có thể tạo từng dòng tại đây, hoặc dùng nút "Đăng ký ca làm hàng loạt"
+                    trong Đợt đăng ký để tạo nhanh cho cả tháng.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

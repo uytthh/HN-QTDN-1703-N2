@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ===================== WIZARD TỪ CHỐI ĐƠN TỪ ===================== -->
+        <record id="view_don_tu_tu_choi_wizard_form" model="ir.ui.view">
+            <field name="name">don_tu.tu_choi.wizard.form</field>
+            <field name="model">don_tu.tu_choi.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Từ chối đơn từ">
+                    <group>
+                        <field name="don_tu_id" invisible="1"/>
+                        <field name="ten_don" readonly="1"/>
+                        <field name="ly_do_tu_choi" placeholder="Nhập lý do từ chối đơn..." nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_xac_nhan" string="Xác nhận từ chối" type="object" class="btn-danger"/>
+                        <button string="Hủy" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ===================== WIZARD ĐĂNG KÝ CA LÀM HÀNG LOẠT ===================== -->
+        <record id="view_dang_ky_hang_loat_wizard_form" model="ir.ui.view">
+            <field name="name">dang_ky_ca_lam.hang_loat.wizard.form</field>
+            <field name="model">dang_ky_ca_lam.hang_loat.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Đăng ký ca làm hàng loạt">
+                    <field name="nhan_vien_kha_dung_ids" invisible="1"/>
+                    <group>
+                        <group string="Đợt &amp; nhân viên">
+                            <field name="dot_dang_ky_id"/>
+                            <field name="nhan_vien_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Khoảng ngày áp dụng">
+                            <field name="ngay_bat_dau"/>
+                            <field name="ngay_ket_thuc"/>
+                            <field name="ca_lam"/>
+                        </group>
+                    </group>
+                    <group string="Áp dụng vào các ngày trong tuần">
+                        <group>
+                            <field name="ap_dung_t2_t6"/>
+                            <field name="ap_dung_t7"/>
+                            <field name="ap_dung_cn"/>
+                        </group>
+                        <group>
+                            <field name="bo_qua_neu_da_co"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Hệ thống sẽ tự động tạo đăng ký ca làm cho <b>mỗi nhân viên đã chọn</b>,
+                        vào <b>mỗi ngày phù hợp</b> trong khoảng thời gian trên - thay vì phải tạo
+                        thủ công từng dòng.
+                    </div>
+                    <footer>
+                        <button name="action_tao_dang_ky" string="Tạo đăng ký" type="object" class="btn-primary"/>
+                        <button string="Hủy" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_dang_ky_hang_loat_wizard" model="ir.actions.act_window">
+            <field name="name">Đăng ký ca làm hàng loạt</field>
+            <field name="res_model">dang_ky_ca_lam.hang_loat.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- ===================== WIZARD TẠO BẢNG CHẤM CÔNG HÀNG LOẠT ===================== -->
+        <record id="view_tao_bang_cham_cong_wizard_form" model="ir.ui.view">
+            <field name="name">bang_cham_cong.hang_loat.wizard.form</field>
+            <field name="model">bang_cham_cong.hang_loat.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Tạo bảng chấm công hàng loạt">
+                    <group>
+                        <field name="dot_dang_ky_id"/>
+                        <field name="ngay_bat_dau"/>
+                        <field name="ngay_ket_thuc"/>
+                        <field name="nhan_vien_ids" widget="many2many_tags"/>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Hệ thống sẽ tạo sẵn một dòng <b>Bảng chấm công</b> cho mỗi nhân viên đã có
+                        đăng ký ca làm trong khoảng ngày trên (những ngày đã có bảng chấm công sẽ
+                        được bỏ qua). Sau đó chỉ cần vào từng dòng để điền giờ vào/ra thực tế,
+                        hoặc dùng nút Check-in/Check-out.
+                    </div>
+                    <footer>
+                        <button name="action_tao_bang_cham_cong" string="Tạo bảng chấm công" type="object" class="btn-primary"/>
+                        <button string="Hủy" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tao_bang_cham_cong_wizard" model="ir.actions.act_window">
+            <field name="name">Tạo bảng chấm công hàng loạt</field>
+            <field name="res_model">bang_cham_cong.hang_loat.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

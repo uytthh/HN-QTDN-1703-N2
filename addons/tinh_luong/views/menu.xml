@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_tinh_luong_root"
+                  name="Tính Lương"
+                  web_icon="tinh_luong,static/description/icon.png"
+                  sequence="15"/>
+
+        <menuitem id="menu_dashboard_tinh_luong"
+                  name="Dashboard"
+                  parent="menu_tinh_luong_root"
+                  action="action_tinh_luong_dashboard"
+                  sequence="0"/>
+
+        <menuitem id="menu_thong_ke_bang_luong"
+                  name="Thống kê theo tháng"
+                  parent="menu_tinh_luong_root"
+                  action="action_bang_luong_thong_ke"
+                  sequence="1"/>
+
+        <menuitem id="menu_bang_luong"
+                  name="Bảng lương"
+                  parent="menu_tinh_luong_root"
+                  action="action_bang_luong"
+                  sequence="2"/>
+
+        <menuitem id="menu_chi_tiet_luong"
+                  name="Chi tiết lương"
+                  parent="menu_tinh_luong_root"
+                  action="action_chi_tiet_luong"
+                  sequence="3"/>
+
+        <menuitem id="menu_hop_dong"
+                  name="Hợp đồng lao động"
+                  parent="menu_tinh_luong_root"
+                  action="action_hop_dong_lao_dong"
+                  sequence="4"/>
+
+        <menuitem id="menu_danh_muc"
+                  name="Danh mục"
+                  parent="menu_tinh_luong_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_phu_cap"
+                  name="Phụ cấp"
+                  parent="menu_danh_muc"
+                  action="action_phu_cap"
+                  sequence="1"/>
+
+        <menuitem id="menu_loai_khau_tru"
+                  name="Loại khấu trừ"
+                  parent="menu_danh_muc"
+                  action="action_loai_khau_tru"
+                  sequence="2"/>
+
+        <menuitem id="menu_cau_hinh"
+                  name="Cấu hình"
+                  parent="menu_tinh_luong_root"
+                  sequence="20"/>
+
+        <menuitem id="menu_cau_hinh_luong"
+                  name="Cấu hình lương"
+                  parent="menu_cau_hinh"
+                  action="action_cau_hinh_luong"
+                  sequence="1"/>
+
+        <menuitem id="menu_cau_hinh_thue"
+                  name="Biểu thuế TNCN"
+                  parent="menu_cau_hinh"
+                  action="action_cau_hinh_thue"
+                  sequence="2"/>
+
+    </data>
+</odoo>

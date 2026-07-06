@@ -1,0 +1,208 @@
+/* =============================================
+   Tính Lương UI Enhancement - Custom Styling
+   ============================================= */
+
+/* Import common styles */
+@import url('ui_enhancement.css');
+
+/* Tính lương specific colors - Green theme */
+.o_dashboard_card.tinh_luong {
+    background: linear-gradient(135deg, #52c41a 0%, #45a049 100%) !important;
+}
+
+/* Salary Summary Cards */
+.o_salary_summary {
+    border-radius: 8px !important;
+    padding: 20px !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.o_salary_card {
+    border-radius: 8px !important;
+    padding: 15px !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.o_salary_card:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.o_salary_card.gross {
+    background: linear-gradient(135deg, #52c41a 0%, #45a049 100%) !important;
+    color: white !important;
+}
+
+.o_salary_card.net {
+    background: linear-gradient(135deg, #1890ff 0%, #1575d8 100%) !important;
+    color: white !important;
+}
+
+.o_salary_card.deduction {
+    background: linear-gradient(135deg, #faad14 0%, #f0a000 100%) !important;
+    color: #333 !important;
+}
+
+.o_salary_card.tax {
+    background: linear-gradient(135deg, #f5222d 0%, #d9161f 100%) !important;
+    color: white !important;
+}
+
+.o_salary_value {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin: 10px 0 !important;
+}
+
+.o_salary_label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    opacity: 0.9 !important;
+}
+
+/* Salary Table */
+.o_salary_table {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.o_salary_table thead {
+    background: linear-gradient(90deg, #52c41a 0%, #45a049 100%) !important;
+    color: white !important;
+}
+
+.o_salary_table tbody tr {
+    border-bottom: 1px solid #e8e8e8 !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.o_salary_table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+/* Salary Detail Breakdown */
+.o_salary_breakdown {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 15px !important;
+    margin: 20px 0 !important;
+}
+
+.o_breakdown_item {
+    background: white !important;
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 6px !important;
+    padding: 15px !important;
+    text-align: center !important;
+}
+
+.o_breakdown_item.income {
+    border-left: 4px solid #52c41a !important;
+}
+
+.o_breakdown_item.deduction {
+    border-left: 4px solid #f5222d !important;
+}
+
+.o_breakdown_item.allowance {
+    border-left: 4px solid #1890ff !important;
+}
+
+/* Contract Section */
+.o_contract_section {
+    background: white !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin: 15px 0 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.o_contract_header {
+    background: linear-gradient(90deg, #52c41a 0%, #45a049 100%) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 6px !important;
+    margin-bottom: 15px !important;
+}
+
+.o_contract_status {
+    display: inline-block !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+}
+
+.o_contract_status.active {
+    background-color: #52c41a !important;
+    color: white !important;
+}
+
+.o_contract_status.expired {
+    background-color: #f5222d !important;
+    color: white !important;
+}
+
+/* Dashboard Charts */
+.o_salary_chart {
+    border-radius: 8px !important;
+    background: white !important;
+    padding: 20px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    margin: 15px 0 !important;
+}
+
+.chart-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 300px !important;
+}
+
+/* Month/Period Selector */
+.o_period_selector {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+.o_period_button {
+    padding: 8px 16px !important;
+    border: 2px solid #e8e8e8 !important;
+    border-radius: 6px !important;
+    background: white !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.o_period_button:hover {
+    border-color: #52c41a !important;
+    color: #52c41a !important;
+}
+
+.o_period_button.active {
+    background: linear-gradient(135deg, #52c41a 0%, #45a049 100%) !important;
+    color: white !important;
+    border-color: #52c41a !important;
+}
+
+/* Configuration Section */
+.o_config_section {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%) !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin: 15px 0 !important;
+    border-left: 4px solid #52c41a !important;
+}
+
+.o_config_title {
+    font-weight: 700 !important;
+    color: #52c41a !important;
+    margin-bottom: 15px !important;
+}

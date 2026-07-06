@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_dot_dang_ky_form" model="ir.ui.view">
+            <field name="name">dot_dang_ky.form</field>
+            <field name="model">dot_dang_ky</field>
+            <field name="arch" type="xml">
+                <form string="Đợt đăng ký">
+                    <header>
+                        <button name="%(action_dang_ky_hang_loat_wizard)d" string="Đăng ký ca làm hàng loạt"
+                                type="action" class="btn-primary" icon="fa-magic"
+                                context="{'default_dot_dang_ky_id': id}"/>
+                        <button name="%(action_tao_bang_cham_cong_wizard)d" string="Tạo bảng chấm công hàng loạt"
+                                type="action" class="btn-secondary" icon="fa-calendar-check-o"
+                                context="{'default_dot_dang_ky_id': id}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_xem_dang_ky_ca_lam" icon="fa-list-alt">
+                                <div class="o_stat_info">
+                                    <field name="so_dang_ky" class="o_stat_value"/>
+                                    <span class="o_stat_text">Đăng ký ca làm</span>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_xem_nhan_vien" icon="fa-users">
+                                <div class="o_stat_info">
+                                    <field name="so_nhan_vien" class="o_stat_value"/>
+                                    <span class="o_stat_text">Nhân viên</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <widget name="web_ribbon" title="ĐÃ HẾT HẠN" bg_color="bg-danger"
+                                attrs="{'invisible': [('trang_thai_dang_ky', '!=', 'Đã hết hạn')]}"/>
+                        <widget name="web_ribbon" title="ĐANG ÁP DỤNG" bg_color="bg-success"
+                                attrs="{'invisible': [('trang_thai_ap_dung', '!=', 'Đang áp dụng')]}"/>
+
+                        <div class="oe_title">
+                            <label for="ten_dot" string="Tên đợt"/>
+                            <h1><field name="ten_dot" readonly="1" class="text-primary"/></h1>
+                        </div>
+
+                        <group col="4" string="Thông tin chung">
+                            <field name="ma_dot"/>
+                            <field name="nam_dang_ky"/>
+                            <field name="thang_dang_ky"/>
+                            <field name="han_dang_ky"/>
+                            <field name="ngay_bat_dau" readonly="1"/>
+                            <field name="ngay_ket_thuc" readonly="1"/>
+                            <field name="trang_thai_dang_ky" widget="badge"
+                                   decoration-success="trang_thai_dang_ky == 'Đang mở'"
+                                   decoration-danger="trang_thai_dang_ky == 'Đã hết hạn'"/>
+                            <field name="trang_thai_ap_dung" widget="badge"
+                                   decoration-success="trang_thai_ap_dung == 'Đang áp dụng'"
+                                   decoration-muted="trang_thai_ap_dung in ('Ngừng áp dụng', 'Chưa áp dụng')"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Nhân viên đăng ký" name="nhan_vien">
+                                <field name="nhan_vien_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Đăng ký ca làm theo ngày" name="dang_ky">
+                                <field name="dang_ky_ca_lam_theo_ngay_ids">
+                                    <tree editable="bottom" decoration-muted="ca_lam == ''">
+                                        <field name="nhan_vien_id"/>
+                                        <field name="ngay_lam"/>
+                                        <field name="ca_lam" widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_dot_dang_ky_tree" model="ir.ui.view">
+            <field name="name">dot_dang_ky.tree</field>
+            <field name="model">dot_dang_ky</field>
+            <field name="arch" type="xml">
+                <tree string="Đợt đăng ký"
+                      decoration-success="trang_thai_dang_ky == 'Đang mở'"
+                      decoration-muted="trang_thai_dang_ky == 'Đã hết hạn'">
+                    <field name="ma_dot"/>
+                    <field name="ten_dot" decoration-bf="1"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="han_dang_ky"/>
+                    <field name="nhan_vien_ids" widget="many2many_tags"/>
+                    <field name="trang_thai_dang_ky" widget="badge"
+                           decoration-success="trang_thai_dang_ky == 'Đang mở'"
+                           decoration-danger="trang_thai_dang_ky == 'Đã hết hạn'"/>
+                    <field name="trang_thai_ap_dung" widget="badge"
+                           decoration-success="trang_thai_ap_dung == 'Đang áp dụng'"
+                           decoration-muted="trang_thai_ap_dung in ('Ngừng áp dụng', 'Chưa áp dụng')"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Kanban View -->
+        <record id="view_dot_dang_ky_kanban" model="ir.ui.view">
+            <field name="name">dot_dang_ky.kanban</field>
+            <field name="model">dot_dang_ky</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column">
+                    <field name="ten_dot"/>
+                    <field name="ngay_bat_dau"/>
+                    <field name="ngay_ket_thuc"/>
+                    <field name="han_dang_ky"/>
+                    <field name="trang_thai_dang_ky"/>
+                    <field name="trang_thai_ap_dung"/>
+                    <field name="nhan_vien_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <strong><field name="ten_dot"/></strong>
+                                        <span t-attf-class="badge #{record.trang_thai_dang_ky.raw_value == 'Đang mở' ? 'badge-success' : 'badge-secondary'}">
+                                            <field name="trang_thai_dang_ky"/>
+                                        </span>
+                                    </div>
+                                    <div class="o_kanban_record_body mt-2">
+                                        <div><i class="fa fa-calendar"/> <field name="ngay_bat_dau"/> - <field name="ngay_ket_thuc"/></div>
+                                        <div class="text-muted"><i class="fa fa-users"/> <field name="nhan_vien_ids"/> nhân viên</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dot_dang_ky_search">
+            <field name="name">dot_dang_ky.search</field>
+            <field name="model">dot_dang_ky</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ma_dot"/>
+                    <field name="ten_dot"/>
+                    <field name="nam_dang_ky"/>
+                    <field name="thang_dang_ky"/>
+                    <field name="nhan_vien_ids"/>
+                    <separator/>
+                    <filter string="Đang mở đăng ký" name="dang_mo" domain="[('trang_thai_dang_ky','=','Đang mở')]" icon="fa-unlock"/>
+                    <filter string="Đã hết hạn" name="het_han" domain="[('trang_thai_dang_ky','=','Đã hết hạn')]" icon="fa-lock"/>
+                    <filter string="Đang áp dụng" name="dang_ap_dung" domain="[('trang_thai_ap_dung','=','Đang áp dụng')]" icon="fa-check-circle"/>
+                    <group expand="1" string="Nhóm theo">
+                        <filter string="Năm" name="group_nam" context="{'group_by':'nam_dang_ky'}"/>
+                        <filter string="Tháng" name="group_thang" context="{'group_by':'thang_dang_ky'}"/>
+                        <filter string="Trạng thái đăng ký" name="group_tt_dk" context="{'group_by':'trang_thai_dang_ky'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_dot_dang_ky" model="ir.actions.act_window">
+            <field name="name">Đợt đăng ký</field>
+            <field name="res_model">dot_dang_ky</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="dot_dang_ky_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo đợt đăng ký ca làm mới
+                </p>
+                <p class="text-muted">
+                    Mỗi đợt tương ứng với một tháng. Sau khi thêm nhân viên vào đợt, dùng nút
+                    "Đăng ký ca làm hàng loạt" để đăng ký nhanh cho cả tháng.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,314 @@
+/* =============================================
+   Odoo UI Enhancement - Custom Styling
+   ============================================= */
+
+/* Dashboard Cards */
+.o_dashboard_card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.o_dashboard_card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+.o_dashboard_card h1,
+.o_dashboard_card h2 {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* Status Badges */
+.badge-success {
+    background-color: #52c41a !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.badge-danger {
+    background-color: #f5222d !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.badge-warning {
+    background-color: #faad14 !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.badge-info {
+    background-color: #1890ff !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* Form Styling */
+.o_form_sheet {
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.o_form_view .o_form_sheet {
+    background: white !important;
+    padding: 20px !important;
+}
+
+/* Header Styling */
+.o_form_view .o_form_header {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.o_form_view .o_form_header h1,
+.o_form_view .o_form_header .o_title {
+    color: white !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #667eea !important;
+    border-color: #667eea !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background-color: #5568d3 !important;
+    border-color: #5568d3 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+.btn-success {
+    background-color: #52c41a !important;
+    border-color: #52c41a !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+}
+
+.btn-success:hover {
+    background-color: #45a049 !important;
+    border-color: #45a049 !important;
+    box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4) !important;
+}
+
+.btn-danger {
+    background-color: #f5222d !important;
+    border-color: #f5222d !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+}
+
+.btn-danger:hover {
+    background-color: #d9161f !important;
+    border-color: #d9161f !important;
+}
+
+/* List View */
+.o_list_view {
+    border-radius: 8px !important;
+}
+
+.o_list_table thead {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.o_list_table thead th {
+    color: white !important;
+    font-weight: 600 !important;
+    border-color: #667eea !important;
+}
+
+.o_list_table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.o_list_table tbody tr {
+    border-bottom: 1px solid #e8e8e8 !important;
+}
+
+/* Menu Items */
+.o_menu_item {
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+}
+
+.o_menu_item:hover {
+    background-color: #f5f5f5 !important;
+    padding-left: 35px !important;
+}
+
+.o_menu_item.selected {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+/* Group Headers */
+.o_group_header {
+    background-color: #f5f5f5 !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    padding: 10px 15px !important;
+    margin: 10px 0 !important;
+}
+
+/* Field Labels */
+.o_field_widget label {
+    font-weight: 600 !important;
+    color: #333 !important;
+}
+
+.o_required_modifier::after {
+    content: " *" !important;
+    color: #f5222d !important;
+}
+
+/* Search View */
+.o_searchview {
+    border-radius: 4px !important;
+    border: 1px solid #e8e8e8 !important;
+}
+
+.o_searchview_input {
+    border-radius: 4px !important;
+}
+
+/* Ribbon */
+.ribbon {
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.ribbon.bg-success {
+    background: linear-gradient(135deg, #52c41a 0%, #45a049 100%) !important;
+}
+
+.ribbon.bg-danger {
+    background: linear-gradient(135deg, #f5222d 0%, #d9161f 100%) !important;
+}
+
+.ribbon.bg-warning {
+    background: linear-gradient(135deg, #faad14 0%, #f0a000 100%) !important;
+}
+
+.ribbon.bg-info {
+    background: linear-gradient(135deg, #1890ff 0%, #1575d8 100%) !important;
+}
+
+/* Modal Styling */
+.modal-header {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.modal-header .modal-title {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+    border-radius: 4px 4px 0 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-tabs .nav-link.active {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border-color: #667eea !important;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+    background-color: #f5f5f5 !important;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border-radius: 4px !important;
+    border-color: #e8e8e8 !important;
+}
+
+.pagination .page-link:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.pagination .page-link.active {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    border-color: #667eea !important;
+}
+
+/* Kanban View Cards */
+.o_kanban_record {
+    border-radius: 6px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.o_kanban_record:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Pivot View */
+.o_pivot_cell {
+    border-color: #e8e8e8 !important;
+}
+
+.o_pivot_cell.data_cell {
+    background-color: #fafafa !important;
+}
+
+/* Tree View */
+.o_tree_button {
+    border-radius: 4px !important;
+}
+
+/* Alerts */
+.alert-success {
+    background: linear-gradient(135deg, #52c41a 0%, #45a049 100%) !important;
+    color: white !important;
+    border-radius: 6px !important;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f5222d 0%, #d9161f 100%) !important;
+    color: white !important;
+    border-radius: 6px !important;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #faad14 0%, #f0a000 100%) !important;
+    color: #333 !important;
+    border-radius: 6px !important;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #1890ff 0%, #1575d8 100%) !important;
+    color: white !important;
+    border-radius: 6px !important;
+}
+
+/* Common */
+.o_content {
+    background-color: #fafafa !important;
+}
+
+.o_sidebar {
+    border-right: 1px solid #e8e8e8 !important;
+    background-color: white !important;
+}
+
+.o_control_panel {
+    background: white !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+}

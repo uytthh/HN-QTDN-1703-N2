@@ -1,0 +1,125 @@
+/* =============================================
+   Nhân Sự UI Enhancement - Custom Styling
+   ============================================= */
+
+/* Import common styles */
+@import url('ui_enhancement.css');
+
+/* Nhân sự specific colors */
+.o_dashboard_card.nhan_su {
+    background: linear-gradient(135deg, #1890ff 0%, #1575d8 100%) !important;
+}
+
+.badge.nhan_su_active {
+    background-color: #52c41a !important;
+    color: white !important;
+}
+
+.badge.nhan_su_training {
+    background-color: #faad14 !important;
+    color: #333 !important;
+}
+
+.badge.nhan_su_inactive {
+    background-color: #d9d9d9 !important;
+    color: #333 !important;
+}
+
+/* Employee List Styling */
+.o_employee_card {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.o_employee_card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.o_employee_card_header {
+    background: linear-gradient(90deg, #1890ff 0%, #1575d8 100%) !important;
+    color: white !important;
+    padding: 15px !important;
+}
+
+.o_employee_card_body {
+    padding: 15px !important;
+}
+
+/* Department Section */
+.o_department_section {
+    border-left: 4px solid #1890ff !important;
+    padding-left: 15px !important;
+    margin: 15px 0 !important;
+}
+
+.o_department_title {
+    font-weight: 700 !important;
+    color: #1890ff !important;
+    font-size: 16px !important;
+}
+
+/* Role/Position Badge */
+.badge.position {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 6px 12px !important;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: inline-block !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    margin-right: 8px !important;
+}
+
+.status-indicator.working {
+    background-color: #52c41a !important;
+}
+
+.status-indicator.training {
+    background-color: #faad14 !important;
+}
+
+.status-indicator.inactive {
+    background-color: #d9d9d9 !important;
+}
+
+/* Organization Chart */
+.o_org_chart {
+    background: white !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+}
+
+.o_org_chart_node {
+    border-radius: 6px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%) !important;
+}
+
+/* Timeline */
+.o_timeline {
+    padding: 20px !important;
+}
+
+.o_timeline_item {
+    padding: 15px !important;
+    border-left: 3px solid #1890ff !important;
+    margin-left: 10px !important;
+    border-radius: 4px !important;
+}
+
+.o_timeline_item:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.o_timeline_date {
+    font-weight: 600 !important;
+    color: #1890ff !important;
+}
